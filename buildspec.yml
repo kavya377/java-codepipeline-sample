@@ -1,1 +1,24 @@
+version: 0.2
 
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+
+  pre_build:
+    commands:
+      - echo Installing dependencies...
+      - mvn clean
+
+  build:
+    commands:
+      - echo Building Maven project...
+      - mvn package
+
+  post_build:
+    commands:
+      - echo Build completed successfully
+
+artifacts:
+  files:
+    - target/*.jar
